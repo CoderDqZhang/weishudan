@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from weibook import views
+from weibook.views import user_view, book_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^user/login/', views.loginUser, name='user/login')
+    url(r'^user/login/', user_view.loginUser, name='user/login'),
+    url(r'^home/books_list/', book_view.home_book_list, name='home/books_list/'),
+    url(r'^home/addBook/', book_view.home_add_book, name='home/addBook/')
+
 ]
